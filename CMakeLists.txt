@@ -54,16 +54,16 @@ target_compile_features(hana INTERFACE cxx_std_14)
 # Export the `hana` library into a HanaConfig.cmake file
 install(TARGETS hana
         EXPORT HanaConfig
-        INCLUDES DESTINATION include)
+        INCLUDES DESTINATION include/feelpp)
 install(EXPORT HanaConfig
-        DESTINATION lib/cmake/hana)
+        DESTINATION feelpp/feel/cmake/modules)
 install(DIRECTORY include/boost
-        DESTINATION include
+        DESTINATION include/feelpp
         FILES_MATCHING PATTERN "*.hpp")
 
 # Also install an optional pkg-config file
 configure_file(cmake/hana.pc.in hana.pc @ONLY)
-install(FILES "${CMAKE_CURRENT_BINARY_DIR}/hana.pc" DESTINATION lib/pkgconfig)
+install(FILES "${CMAKE_CURRENT_BINARY_DIR}/hana.pc" DESTINATION share/feelpp/hana/pkgconfig)
 
 
 ##############################################################################
@@ -184,6 +184,6 @@ endif()
 include(CTest)
 
 add_subdirectory(benchmark)
-add_subdirectory(doc)
+# add_subdirectory(doc)
 add_subdirectory(example)
 add_subdirectory(test)
