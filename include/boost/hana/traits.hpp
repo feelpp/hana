@@ -19,7 +19,7 @@ Distributed under the Boost Software License, Version 1.0.
 #include <type_traits>
 
 
-BOOST_HANA_NAMESPACE_BEGIN namespace traits {
+namespace boost { namespace hana { namespace traits {
     namespace detail {
         // We use this instead of hana::integral because we want to return
         // hana::integral_constants instead of std::integral_constants.
@@ -70,7 +70,9 @@ BOOST_HANA_NAMESPACE_BEGIN namespace traits {
 #if __cplusplus < 202002L
     BOOST_HANA_INLINE_VARIABLE constexpr auto is_pod = detail::hana_trait<std::is_pod>{};
 #endif
+#if __cplusplus < 201703L
     BOOST_HANA_INLINE_VARIABLE constexpr auto is_literal_type = detail::hana_trait<std::is_literal_type>{};
+#endif
     BOOST_HANA_INLINE_VARIABLE constexpr auto is_empty = detail::hana_trait<std::is_empty>{};
     BOOST_HANA_INLINE_VARIABLE constexpr auto is_polymorphic = detail::hana_trait<std::is_polymorphic>{};
     BOOST_HANA_INLINE_VARIABLE constexpr auto is_abstract = detail::hana_trait<std::is_abstract>{};
@@ -209,6 +211,6 @@ BOOST_HANA_NAMESPACE_BEGIN namespace traits {
     };
 
     BOOST_HANA_INLINE_VARIABLE constexpr declval_t declval{};
-} BOOST_HANA_NAMESPACE_END
+} }} // end namespace boost::hana
 
 #endif // !BOOST_HANA_TRAITS_HPP
