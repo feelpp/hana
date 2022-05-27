@@ -12,16 +12,16 @@ project(boost_hana VERSION "${BOOST_SUPERPROJECT_VERSION}" LANGUAGES CXX)
 add_library(boost_hana INTERFACE)
 add_library(Boost::hana ALIAS boost_hana)
 
-target_include_directories(boost_hana INTERFACE include)
+#target_include_directories(boost_hana INTERFACE include)
 
-target_link_libraries(boost_hana
-  INTERFACE
-    Boost::config
-    Boost::core
-    Boost::fusion
-    Boost::mpl
-    Boost::tuple
-)
+#target_link_libraries(boost_hana
+#  INTERFACE
+#    Boost::config
+#    Boost::core
+#    Boost::fusion
+#    Boost::mpl
+#    Boost::tuple
+#)
 
 target_compile_features(boost_hana INTERFACE cxx_std_14)
 
