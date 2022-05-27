@@ -32,7 +32,7 @@ BOOST_HANA_NAMESPACE_BEGIN
 
         template <typename ...X>
         static constexpr auto make_helper(long, X&& ...) {
-            static_assert((sizeof...(X), false),
+            static_assert(((void) sizeof...(X), false),
             "there exists no constructor for the given data type");
         }
 

@@ -18,7 +18,7 @@ Distributed under the Boost Software License, Version 1.0.
 BOOST_HANA_NAMESPACE_BEGIN namespace detail {
     template <bool ...b>
     struct fast_and
-        : std::is_same<fast_and<b...>, fast_and<(b, true)...>>
+        : std::is_same<fast_and<b...>, fast_and<((void) b, true)...>>
     { };
 } BOOST_HANA_NAMESPACE_END
 
